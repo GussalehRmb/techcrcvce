@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAYANAN SERVICE DARMATECH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(70, 198, 230); 
+            min-height: 100vh; 
+        }
+        .cover {
+            background: url('https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-d-rendering-of-adorable-robot-working-with-headset-and-notebook-in-image_3737536.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(195, 248, 4);
+            text-align: center;
+            text-shadow: 4px 4px 4px #00000a;
+            padding: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .cover img {
+            max-width: 100%;
+            max-height: 50vh;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 20%;
+        }
+        .cover button {
+            background-color: #4a08ff;
+            color: #f9f9fc;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cover button:hover {
+            background-color: #0d0d0e;
+        }
+        .main-content {
+            display: none;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .service-card {
+            margin-bottom: 20px;
+        }
+        .documentation {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #525558; 
+            color: white;
+            padding: 2px 0;
+            text-align: center;
+            z-index: 10; 
+        }
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #1706fd;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .social-links a:hover {
+            color: #000002;
+        }
+        #contentArea {
+            width: 100vw;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 80px; 
+        }
+        #contentArea section {
+            background-color: rgba(147, 230, 241, 0.9); 
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .service-image {
+            width: 265px;
+            height: auto;
+            margin: 6px; 
+            border-radius: 6%;
+        }
+         .service-image1 {
+            width: 265px;
+            height: auto;
+            margin: 4px; 
+            border-radius: 6%;
+        }
+        .nav-link {
+            color: rgb(216, 253, 8);
+        }
+        .text-center {
+            border-radius: 5%;
+        }
+         .contact-form {
+            max-width: 630px;
+            margin: 0 auto;
+            text-align: center; 
+        }
+        .navbar-brand:hover {
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div id="cover" class="cover">
+        <img src="https://img.freepik.com/premium-vector/computer-service-logo-mascot-template_190190-141.jpg" alt="Logo Darmatech" class="img-fluid">
+        <h1><b>SELAMAT DATANG DI<br> SERVICE DARMATECH</b></h1>
+        <p>Solusi Terbaik untuk Service Laptop dan Handphone Anda  <i class="fas fa-laptop"></i></p>
+          <button id="enterBtn">Klik untuk Masuk</button>
+  
+    </div>
+
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="mainContent" class="main-content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#" onclick="loadPage('tentang')">LAYANAN SERVICE DARMATECH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('tentang')">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('layanan')">Layanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('lokasi')">Lokasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('media')">Media Sosial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('hubungi')">Hubungi</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="contentArea">
+            <section id="tentangContent" class="container py-5">
+                <h2 class="text-center mb-4">Tentang Kami</h2>
+                <p class="text-center">LAYANAN SERVICE DARMATECH adalah penyedia layanan service laptop dan handphone terpercaya. Kami berkomitmen untuk memberikan pelayanan berkualitas tinggi dengan teknisi berpengalaman. Didirikan sejak 2020, kami telah 
+                    melayani ribuan pelanggan dengan kepuasan maksimal.</p>
+        </div>
+            </section>
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 LAYANAN SERVICE DARMATECH CIKARANG <i class="fas fa-laptop"></i>.</p>
+                <p><u>Di buat oleh <b>Darmatech</b> Team</u></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
+        }
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        function loadPage(page) {
+            showLoading();
+            setTimeout(() => {
+                let content = '';
+                switch(page) {
+                    case 'tentang':
+                        content = `
+                            <section class="container py-5">
+                                <h2 class="text-center mb-4"><b>TENTANG KAMI</b></h2>
+                                <p class="text-center"><b>LAYANAN SERVICE DARMATECH Merupakan layanan service home, yang berfokus pada perbaikan dan pemeliharaan perangkat di wilayah Cikarang dan sekitarnya
+                                 terkhusunya pada Handpone dan Laptop</b>
+                            </section>
+                        `;
+                        break;
+                    case 'layanan':
+                        content = `
+                            <section class="container py-5">
+                                <h2 class="text-center mb-4"><b>LAYANAN KAMI</b></h2>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 text-center">
+                                            <h4>Service Laptop</h4>
+                                            <p><b>Tersedia</b><br><i>Cleaning mainboard laptop<br>Install ulang windows & Ganti LCD<br>Upgrade SSD dan RAM<br>DLL</i></p>
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZqUzbHCchZvUbJtIQXxS2uAIMLCM1cFqzYA&s" alt="Dokumentasi Service Laptop" class="service-image">
+                                        <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1521825984/Peluang-usaha-servis-laptop_rchdut.jpg" alt="Dokumentasi Service Laptop" class="service-image">
+                                        <img src="https://bratamedia.com/wp-content/uploads/2023/05/Pentingnya-Servis-Rutin-Laptop-untuk-Mencegah-Kerusakan-yang-Tidak-Terduga.jpg" alt="Dokumentasi Service Laptop" class="service-image">
+                                        <img src="https://uni-master.net/wp-content/uploads/2024/01/Fotos-con-logo-para-la-pagina-58.png" alt="Dokumentasi Service Laptop" class="service-image">
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                            <h4>Service Handphone</h4>
+                                            <p><b>Tersedia</b><br><i>Cleaning mainboard Handphone<br>Ganti LCD<br>Ganti Baterai<br>DLL</i></p>
+                                        <img src="https://buanaservice.id/wp-content/uploads/2020/01/Service-Handphone-iPhone-Jakarta-768x512.jpg" alt="Dokumentasi Service Handphone" class="service-image1">
+                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8gqZFqin0QAk53qrYattvzvdKdjsi2b0tRky65jUaJ-KBM5sBxhntUh5qDBDcomZ2FRwgm5-aQqCoUYQdG1MW5Q-SGT1u3Fhn0KL9k5pokbqoAn8OBjYbjKdxIYmTKILZiHuV25oA-LLGIvcknC-ySodVnNIlTTwuAfEx69TV9MZt_E8gNKzrN6g1/s1386/Mengenal%20semua%20part%20pada%20smartphone.jpg" alt="Dokumentasi Service Handphone" class="service-image1">
+                                        <img src="https://2.bp.blogspot.com/-KTrMNpTmFWo/Vs8-yL2FlrI/AAAAAAAAAT0/oNfC31xjhbc/s1600/Belajar%2Bservice%2Bhandphone.jpeg" alt="Dokumentasi Service Handphone" class="service-image1">
+                                        <img src="https://pahlawangadget.com/wp-content/uploads/2020/10/Service-HP-Jakarta-Timur.png" alt="Dokumentasi Service Handphone" class="service-image1">
+                                    </div>
+                                </div>
+                            </section>
+                        `;
+                        break;
+                    case 'lokasi':
+                        content = `
+                            <section class="container py-5">
+                                <h2 class="text-center mb-4"><b>LOKASI</b></h2>
+                                <address class="text-center">
+                                    Alamat: Area Cikarang, Jawa Barat, Indonesia<br>
+                                    Telepon:+62 815 1412 7961<br>
+                                    Email: info@darmatech.com
+                                </address>
+                                <div class="text-center">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107401.89877522521!2d107.07186009040956!3d-6.3150395216816975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699a97cdfd23f3%3A0xa467efa8d683cc31!2sCikarang%2C%20Bekasi%20Regency%2C%20West%20Java%2C%20Indonesia!5e1!3m2!1sen!2sus!4v1765212937212!5m2!1sen!2sus" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </section>
+                        `;
+                        break;
+                    case 'media':
+                        content = `
+                            <section class="container py-5">
+                                <h2 class="text-center mb-4"><b>MEDIA SOSIAL</b></h2>
+                                <p class="text-center"><b>Follow kami😊</b><br>Klik link tiktok dibawah untuk mengikuti<br>👇</p>
+                                <div class="social-links">
+                                    <a href="https://www.tiktok.com/@darma.tech?_r=1&_t=ZS-924NvqePgpQ" target="_blank">
+                                        <i class="fab fa-tiktok">TikTok</i>
+                                    </a>
+                                </div>
+                            </section>
+                        `;
+                        break;
+                    case 'hubungi':
+                        content = `
+                          <section class="container py-5">
+                                <h2 class="text-center mb-4">Hubungi Kami</h2>
+                                <p class="text-center">Untuk pemesanan atau pertanyaan, isi form di bawah ini. Pesanan akan otomatis dikirim ke WhatsApp kami.</p>
+                                <form id="contactForm" class="contact-form">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Pesan</label>
+                                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Kirim ke WhatsApp</button>
+                                </form>
+                            </section>
+                        `;
+                        break;
+                }
+                document.getElementById('contentArea').innerHTML = content;
+                hideLoading();
+                if (page === 'hubungi') {
+                    document.getElementById('contactForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const name = document.getElementById('name').value;
+                        const message = document.getElementById('message').value;
+
+                        const waMessage = `Halo, saya ${name}). Pesan: ${message}`;
+                        const waUrl = `https://wa.me/6289617799997?text=${encodeURIComponent(waMessage)}`;
+                        window.open(waUrl, '_blank');
+                    });
+                }
+            }, 1000); 
+        }
+
+        document.getElementById('enterBtn').addEventListener('click', function() {
+            showLoading();
+            setTimeout(() => {
+                document.getElementById('cover').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                loadPage('tentang'); 
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
